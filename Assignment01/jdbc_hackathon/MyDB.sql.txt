@@ -1,0 +1,15 @@
+create database firAssign
+
+use firAssign 
+
+
+create table users(id int primary key , first_name varchar(50) , last_name varchar(50) , email varchar(50) unique , password varchar(30) , mobile varchar(12) , birth date);
+
+
+create table movies ( id int primary key , title varchar(20) , release_date date);
+
+
+create table reviews ( id int primary key , movie_id int  , review varchar(200) , user_id int , modified datetime , foreign key (movie_id) references movies(id), foreign key (user_id) references users(id) ); 
+
+
+create table shares ( review_id int , user_id int , foreign key (review_id) references reviews(id) , foreign key (user_id) references users(id));
